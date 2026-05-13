@@ -7,7 +7,7 @@ export default function Input({ label, placeholder, value, onChange, optional, t
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%', minWidth: 0 }}>
       {label && (
         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2px 0' }}>
           <span style={{ fontSize: 14, fontWeight: 500, color: '#292928', lineHeight: '20px' }}>{label}</span>

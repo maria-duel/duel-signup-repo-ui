@@ -20,7 +20,7 @@ export default function S1({ d, set, onNext, onBack }) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div>
-            <div style={{ display: 'flex', gap: 8 }}>
+            <div style={{ display: 'flex', gap: 8, minWidth: 0 }}>
               <Input placeholder="First Name" value={d.firstName} onChange={v => set(p => ({ ...p, firstName: v }))} />
               <Input placeholder="Last Name"  value={d.lastName}  onChange={v => set(p => ({ ...p, lastName: v }))} />
             </div>
@@ -28,7 +28,7 @@ export default function S1({ d, set, onNext, onBack }) {
               Use your legal name. You can add a preferred name later.
             </p>
           </div>
-          <Input placeholder="Email" type="email" value={d.email} onChange={v => set(p => ({ ...p, email: v }))} />
+          <Input placeholder="Email address" type="email" value={d.email} onChange={v => set(p => ({ ...p, email: v }))} />
         </div>
         <Btn label="Continue" enabled={!!ok} onClick={onNext} />
       </div>

@@ -28,7 +28,7 @@ export default function S0({ onNext }) {
             </div>
           ))}
         </div>
-        <Btn label="Start your application" outline onClick={onNext} />
+        <Btn label="Start your application" onClick={onNext} />
       </div>
 
       <div style={{
