@@ -22,9 +22,12 @@ export default function S0({ onNext }) {
             ['Make money from every sale',  'Share your unique link with your audience'],
             ['Refer friends, earn more',    'Get rewarded every time you bring someone new'],
           ].map(([h, b], i) => (
-            <div key={i} style={{ border: `1px solid ${C.border}`, borderRadius: 4, padding: '12px 16px' }}>
-              <p style={{ fontSize: 16, color: C.text, margin: '0 0 2px', lineHeight: '20px' }}>{h}</p>
-              <p style={{ fontSize: 14, color: C.sub,  margin: 0,         lineHeight: '18px' }}>{b}</p>
+            <div key={i} style={{ border: `1px solid ${C.border}`, borderRadius: 4, padding: '12px 16px', display: 'flex', gap: 12, alignItems: 'center' }}>
+              <div style={{ width: 44, height: 44, borderRadius: 1000, background: C.stepIdle, flexShrink: 0 }} />
+              <div>
+                <p style={{ fontSize: 16, color: C.text, margin: '0 0 2px', lineHeight: '20px' }}>{h}</p>
+                <p style={{ fontSize: 14, color: C.sub,  margin: 0,         lineHeight: '18px' }}>{b}</p>
+              </div>
             </div>
           ))}
         </div>

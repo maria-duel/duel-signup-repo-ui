@@ -92,8 +92,8 @@ export default function S4b({ onNext }) {
             <button
               onClick={onNext}
               style={{
-                width: '100%', height: 48, borderRadius: 12, border: `1px solid ${C.border}`,
-                background: 'transparent', color: C.text, fontSize: 14, fontWeight: 700,
+                width: '100%', height: 48, borderRadius: 12, border: 'none',
+                background: '#101010', color: '#fff', fontSize: 14, fontWeight: 700,
                 fontFamily: "'DM Sans', sans-serif", cursor: 'pointer',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
