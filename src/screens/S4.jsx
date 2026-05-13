@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { C } from '../constants';
 import { IcoMail } from '../components/icons';
+import Btn from '../components/Btn';
 
-export default function S4({ email }) {
+export default function S4({ email, onNext }) {
   const [sent, setSent] = useState(false);
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, padding: '0 32px', textAlign: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, padding: '0 32px', textAlign: 'center', width: '100%' }}>
         <div style={{
           width: 44, height: 44, borderRadius: 1000, background: C.stepActive,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -23,6 +24,9 @@ export default function S4({ email }) {
         <p style={{ fontSize: 14, color: C.sub, margin: '8px 0 0', lineHeight: '20px', maxWidth: 300 }}>
           Didn't get the email? Check your spam folder, or resend the email.
         </p>
+        <div style={{ width: '100%', marginTop: 16 }}>
+          <Btn label="Open email" onClick={onNext} />
+        </div>
         <button
           className="pressable"
           style={{
