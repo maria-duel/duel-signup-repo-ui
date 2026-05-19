@@ -1,5 +1,6 @@
 import { C } from '../constants';
 import Btn from '../components/Btn';
+import duelLogo from '../assets/duel-logo.svg';
 
 export default function S0({ onNext }) {
   return (
@@ -49,9 +50,9 @@ export default function S0({ onNext }) {
         position: 'absolute', bottom: 0, left: 0, right: 0, paddingBottom: 24,
         paddingInline: 48, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16,
       }}>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: 10, color: C.sub, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 2 }}>Powered by</div>
-          <div style={{ fontSize: 18, fontWeight: 700, color: C.text }}>duel.</div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+          <div style={{ fontSize: 10, color: C.sub, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Powered by</div>
+          <img src={duelLogo} alt="Duel" style={{ height: 18, width: 'auto', opacity: 0.7 }} />
         </div>
         <p style={{ fontSize: 12, color: C.sub, textAlign: 'center', margin: 0, lineHeight: '16px' }}>
           By continuing, I confirm I am 18 or older and accept the{' '}
