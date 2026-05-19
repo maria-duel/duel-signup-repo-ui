@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import S0 from './screens/S0';
+import S0b from './screens/S0b';
 import S1 from './screens/S1';
 import S2 from './screens/S2';
 import S3 from './screens/S3';
@@ -7,7 +8,7 @@ import S4 from './screens/S4';
 import S4b from './screens/S4b';
 import S5 from './screens/S5';
 
-const FLOW = ['s0', 's1', 's2', 's3', 's4', 's4b', 's5'];
+const FLOW = ['s0', 's0b', 's1', 's2', 's3', 's4', 's4b', 's5'];
 
 export default function App() {
   const [idx,     setIdx]     = useState(0);
@@ -31,6 +32,7 @@ export default function App() {
 
   const screens = {
     s0:  <S0 onNext={next} />,
+    s0b: <S0b onNext={next} onBack={back} />,
     s1:  <S1 d={form} set={setForm} onNext={next} onBack={back} />,
     s2:  <S2 d={form} set={setForm} onNext={next} onBack={back} />,
     s3:  <S3 d={form} set={setForm} onNext={next} onBack={back} />,
