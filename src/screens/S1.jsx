@@ -1,37 +1,67 @@
 import { C } from '../constants';
+import { IcoGoogle, IcoTikTok, IcoMeta } from '../components/icons';
 import Input from '../components/Input';
 import Btn from '../components/Btn';
-import Steps from '../components/Steps';
 import BackBtn from '../components/BackBtn';
 import Footer from '../components/Footer';
 
+const SSO_OPTIONS = [
+  { label: 'Continue with Google', Ico: IcoGoogle },
+  { label: 'Continue with TikTok', Ico: IcoTikTok },
+  { label: 'Continue with Meta',   Ico: IcoMeta   },
+];
+
 export default function S1({ d, set, onNext, onBack }) {
-  const ok = d.firstName.trim() && d.lastName.trim() && d.email.includes('@') && d.email.includes('.');
+  const emailOk = d.email.includes('@') && d.email.includes('.');
+
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
       <BackBtn onClick={onBack} />
-      <div style={{ position: 'absolute', top: 84, left: '50%', transform: 'translateX(-50%)' }}>
-        <Steps step={1} />
-      </div>
-      <div style={{ position: 'absolute', top: 192, left: 16, width: 358, display: 'flex', flexDirection: 'column', gap: 20 }}>
+
+      <div style={{ position: 'absolute', top: 140, left: 16, width: 358, display: 'flex', flexDirection: 'column', gap: 24 }}>
         <div>
-          <p style={{ fontSize: 20, color: C.text, margin: '0 0 4px', lineHeight: '28px' }}>First, tell us who you are</p>
-          <p style={{ fontSize: 14, color: C.sub, margin: 0, lineHeight: '18px' }}>Step 1 of 3</p>
+          <p style={{ fontSize: 20, color: C.text, margin: '0 0 4px', lineHeight: '28px' }}>Create your account</p>
+          <p style={{ fontSize: 14, color: C.sub, margin: 0, lineHeight: '20px' }}>Choose how you'd like to sign up.</p>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <div>
-            <div style={{ display: 'flex', gap: 8, minWidth: 0 }}>
-              <Input placeholder="First Name" value={d.firstName} onChange={v => set(p => ({ ...p, firstName: v }))} />
-              <Input placeholder="Last Name"  value={d.lastName}  onChange={v => set(p => ({ ...p, lastName: v }))} />
-            </div>
-            <p style={{ fontSize: 12, color: C.text, margin: '8px 4px 0', lineHeight: '16px' }}>
-              Use your legal name. You can add a preferred name later.
-            </p>
-          </div>
-          <Input placeholder="Email address" type="email" value={d.email} onChange={v => set(p => ({ ...p, email: v }))} />
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {SSO_OPTIONS.map(({ label, Ico }) => (
+            <button
+              key={label}
+              className="pressable"
+              onClick={onNext}
+              style={{
+                width: '100%', height: 48, borderRadius: 12,
+                border: `1px solid ${C.border}`,
+                background: '#fff',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                cursor: 'pointer', fontFamily: 'inherit',
+                fontSize: 14, fontWeight: 600, color: C.text,
+              }}
+            >
+              <Ico />
+              {label}
+            </button>
+          ))}
         </div>
-        <Btn label="Continue" enabled={!!ok} onClick={onNext} />
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div style={{ flex: 1, height: 1, background: C.border }} />
+          <span style={{ fontSize: 13, color: C.muted }}>or</span>
+          <div style={{ flex: 1, height: 1, background: C.border }} />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <Input
+            placeholder="Email address"
+            type="email"
+            value={d.email}
+            onChange={v => set(p => ({ ...p, email: v }))}
+          />
+          <Btn label="Continue with email" enabled={emailOk} onClick={onNext} />
+        </div>
       </div>
+
       <Footer />
     </div>
   );

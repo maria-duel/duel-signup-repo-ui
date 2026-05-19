@@ -11,7 +11,7 @@ export default function S3({ d, set, onNext, onBack }) {
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
       <BackBtn onClick={onBack} />
       <div style={{ position: 'absolute', top: 84, left: '50%', transform: 'translateX(-50%)' }}>
-        <Steps step={3} />
+        <Steps step={2} />
       </div>
       <div style={{ position: 'absolute', top: 192, left: 16, width: 358, display: 'flex', flexDirection: 'column', gap: 20 }}>
         <div>

@@ -1,18 +1,15 @@
 import { C } from '../constants';
-import { IcoCheck, IcoUser, IcoList, IcoCam } from './icons';
+import { IcoCheck, IcoUser, IcoCam } from './icons';
 
 const defs = [
   { label: 'Basic Info', Ico: IcoUser },
-  { label: 'Details',    Ico: IcoList },
   { label: 'Socials',    Ico: IcoCam  },
 ];
 
 export default function Steps({ step }) {
   return (
-    <div style={{ position: 'relative', width: 252 }}>
-      {[52, 152].map(x => (
-        <div key={x} style={{ position: 'absolute', top: 22, left: x, width: 48, height: 1, background: C.border }} />
-      ))}
+    <div style={{ position: 'relative', width: 180 }}>
+      <div style={{ position: 'absolute', top: 22, left: 52, width: 76, height: 1, background: C.border }} />
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         {defs.map(({ label, Ico }, i) => {
           const st = i + 1 < step ? 'done' : i + 1 === step ? 'active' : 'idle';
