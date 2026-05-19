@@ -20,6 +20,7 @@ export default function S2({ d, set, onNext, onBack }) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div>
+            <span style={{ fontSize: 14, fontWeight: 500, color: '#292928', lineHeight: '20px', display: 'block', marginBottom: 4 }}>Name</span>
             <div style={{ display: 'flex', gap: 8, minWidth: 0 }}>
               <Input placeholder="First name" value={d.firstName} onChange={v => set(p => ({ ...p, firstName: v }))} />
               <Input placeholder="Last name"  value={d.lastName}  onChange={v => set(p => ({ ...p, lastName: v }))} />
