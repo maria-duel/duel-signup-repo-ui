@@ -1,15 +1,15 @@
 import { C } from '../constants';
 import Btn from '../components/Btn';
+import duelLogo from '../assets/duel-logo.svg';
 
 export default function S0({ onNext }) {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
       <div style={{
-        position: 'absolute', top: 85, left: 136, width: 120, height: 60,
-        borderRadius: 4, background: 'rgba(32,41,57,0.1)',
+        position: 'absolute', top: 85, left: 0, right: 0,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
-        <span style={{ fontSize: 15, fontWeight: 600, color: 'rgba(0,0,0,0.25)' }}>Logo Area</span>
+        <img src={duelLogo} alt="Duel" style={{ height: 32, width: 'auto' }} />
       </div>
 
       <div style={{ position: 'absolute', top: 192, left: 16, width: 358, display: 'flex', flexDirection: 'column', gap: 24 }}>
