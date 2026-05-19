@@ -28,7 +28,7 @@ export default function S2({ d, set, onNext, onBack }) {
               Use your legal name. You can add a preferred name later.
             </p>
           </div>
-          <Input label="Date of birth" placeholder="dd/mm/yyyy" value={d.dob} onChange={v => set(p => ({ ...p, dob: v }))} />
+          <Input label="Date of birth" placeholder="dd/mm/yyyy" value={d.dob} onChange={v => set(p => ({ ...p, dob: v }))} dob />
           <Input label="Country" placeholder="Select your country" value={d.country} onChange={v => set(p => ({ ...p, country: v }))} select />
           <Input
             label="What's your most loved product?"

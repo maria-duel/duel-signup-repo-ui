@@ -2,7 +2,14 @@ import { useState } from 'react';
 import { C, COUNTRIES } from '../constants';
 import { IcoChev } from './icons';
 
-export default function Input({ label, placeholder, value, onChange, optional, type = 'text', select }) {
+function formatDob(raw) {
+  const digits = raw.replace(/\D/g, '').slice(0, 8);
+  if (digits.length <= 2) return digits;
+  if (digits.length <= 4) return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+  return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+}
+
+export default function Input({ label, placeholder, value, onChange, optional, type = 'text', select, dob }) {
   const [focused, setFocused] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -61,8 +68,10 @@ export default function Input({ label, placeholder, value, onChange, optional, t
         }}>
           <input
             type={type}
+            inputMode={dob ? 'numeric' : undefined}
+            maxLength={dob ? 10 : undefined}
             value={value}
-            onChange={e => onChange(e.target.value)}
+            onChange={e => onChange(dob ? formatDob(e.target.value) : e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             placeholder={placeholder}
