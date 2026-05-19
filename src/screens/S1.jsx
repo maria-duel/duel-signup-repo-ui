@@ -21,7 +21,7 @@ export default function S1({ d, set, onNext, onBack }) {
       <div style={{ position: 'absolute', top: 140, left: 16, width: 358, display: 'flex', flexDirection: 'column', gap: 24 }}>
         <div>
           <p style={{ fontSize: 20, color: C.text, margin: '0 0 4px', lineHeight: '28px' }}>Create your account</p>
-          <p style={{ fontSize: 14, color: C.sub, margin: 0, lineHeight: '20px' }}>Choose how you'd like to sign up.</p>
+          <p style={{ fontSize: 14, color: C.sub, margin: 0, lineHeight: '20px' }}>Choose how you'd like to sign up. Takes about 2 minutes.</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>

@@ -13,9 +13,20 @@ export default function S0({ onNext }) {
       </div>
 
       <div style={{ position: 'absolute', top: 192, left: 16, width: 358, display: 'flex', flexDirection: 'column', gap: 24 }}>
-        <p style={{ fontSize: 20, textAlign: 'center', lineHeight: '28px', color: C.text, margin: 0 }}>
-          Start earning as a creator
-        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
+          <p style={{ fontSize: 20, textAlign: 'center', lineHeight: '28px', color: C.text, margin: 0 }}>
+            Start earning as a creator
+          </p>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            background: C.stepIdle, borderRadius: 100, padding: '4px 12px',
+          }}>
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#3d9e5f', flexShrink: 0 }} />
+            <span style={{ fontSize: 12, color: C.sub, lineHeight: '16px' }}>
+              Join 12,000+ creators already earning
+            </span>
+          </div>
+        </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {[
             ['Earn points and commission', 'Complete brand challenges to get rewarded'],

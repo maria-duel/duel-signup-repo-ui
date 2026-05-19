@@ -9,7 +9,14 @@ function formatDob(raw) {
   return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
 }
 
-export default function Input({ label, placeholder, value, onChange, optional, type = 'text', select, dob }) {
+const IcoValidCheck = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
+    <circle cx="8" cy="8" r="8" fill="#3d9e5f" />
+    <path d="M4.5 8.5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export default function Input({ label, placeholder, value, onChange, optional, type = 'text', select, dob, valid }) {
   const [focused, setFocused] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -80,6 +87,7 @@ export default function Input({ label, placeholder, value, onChange, optional, t
               fontSize: 14, color: C.text, lineHeight: '18px', fontFamily: 'inherit',
             }}
           />
+          {valid && <IcoValidCheck />}
         </div>
       )}
     </div>
