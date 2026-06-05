@@ -30,9 +30,9 @@ export default function S0({ onNext }) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {[
-            ['Do what you already do',   'Create content around brands you love — and get recognised.'],
-            ['Get seen by the brand',    'Your content noticed, shared, and celebrated — by your audience and the brand.'],
-            ['Earn as you create',       'Points, commissions, and gift cards — rewards that grow the more you share.'],
+            ['Do what you already do',   'Create content around brands you love and get recognised.'],
+            ['Get seen by the brand',    'Your content noticed, shared, and celebrated by your audience and the brand.'],
+            ['Earn as you create',       'Points, commissions, and gift cards. Rewards that grow the more you share.'],
           ].map(([h, b], i) => (
             <div key={i} style={{ border: `1px solid ${C.border}`, borderRadius: 4, padding: '12px 16px', display: 'flex', gap: 12, alignItems: 'center' }}>
               <div style={{ width: 44, height: 44, borderRadius: 1000, background: C.stepIdle, flexShrink: 0 }} />
