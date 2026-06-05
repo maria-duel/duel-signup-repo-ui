@@ -16,7 +16,7 @@ export default function S0({ onNext }) {
       <div style={{ position: 'absolute', top: 192, left: 16, width: 358, display: 'flex', flexDirection: 'column', gap: 24 }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
           <p style={{ fontSize: 20, textAlign: 'center', lineHeight: '28px', color: C.text, margin: 0 }}>
-            Start earning as a creator
+            Share what you love. Get rewarded for it.
           </p>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -24,15 +24,15 @@ export default function S0({ onNext }) {
           }}>
             <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#3d9e5f', flexShrink: 0 }} />
             <span style={{ fontSize: 12, color: C.sub, lineHeight: '16px' }}>
-              Join 12,000+ creators already earning
+              Join 12,000+ creators who already love this brand
             </span>
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {[
-            ['Earn points and commission', 'Complete brand challenges to get rewarded'],
-            ['Make money from every sale',  'Share your unique link with your audience'],
-            ['Refer friends, earn more',    'Get rewarded every time you bring someone new'],
+            ['Do what you already do',   'Create content around brands you genuinely love — and get recognised for it.'],
+            ['Get seen by the brand',    'Your content noticed, shared, and celebrated — not just by your audience, but by the brand itself.'],
+            ['Earn as you create',       'Points, commissions, and gift cards — rewards that grow the more you share.'],
           ].map(([h, b], i) => (
             <div key={i} style={{ border: `1px solid ${C.border}`, borderRadius: 4, padding: '12px 16px', display: 'flex', gap: 12, alignItems: 'center' }}>
               <div style={{ width: 44, height: 44, borderRadius: 1000, background: C.stepIdle, flexShrink: 0 }} />
@@ -43,7 +43,7 @@ export default function S0({ onNext }) {
             </div>
           ))}
         </div>
-        <Btn label="Start your application" onClick={onNext} />
+        <Btn label="Apply now" onClick={onNext} />
       </div>
 
       <div style={{
