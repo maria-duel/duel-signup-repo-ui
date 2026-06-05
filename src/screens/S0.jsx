@@ -37,7 +37,7 @@ export default function S0({ onNext }) {
             <div key={i} style={{ border: `1px solid ${C.border}`, borderRadius: 4, padding: '12px 16px', display: 'flex', gap: 12, alignItems: 'center' }}>
               <div style={{ width: 44, height: 44, borderRadius: 1000, background: C.stepIdle, flexShrink: 0 }} />
               <div>
-                <p style={{ fontSize: 16, color: C.text, margin: '0 0 2px', lineHeight: '20px' }}>{h}</p>
+                <p style={{ fontSize: 16, fontWeight: 700, color: C.text, margin: '0 0 2px', lineHeight: '20px' }}>{h}</p>
                 <p style={{ fontSize: 14, color: C.sub,  margin: 0,         lineHeight: '18px' }}>{b}</p>
               </div>
             </div>
