@@ -13,7 +13,6 @@ const IcoCheck = () => (
 const CRITERIA = [
   ['Based in the United States',                         null],
   ['18 years or older',                                  null],
-  ['At least 1,000 followers on Instagram or TikTok',   null],
   ['Public profile on at least one platform',            null],
 ];
 
