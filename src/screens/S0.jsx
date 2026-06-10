@@ -30,7 +30,7 @@ export default function S0({ onNext }) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {[
-            ['Do what you already do',   'Create content around brands you love and get recognised.'],
+            ['Do what you already do',   'Create content around a brand you love and get recognised.'],
             ['Get seen by the brand',    'Your content noticed, shared, and celebrated by your audience and the brand.'],
             ['Earn as you create',       'Points, commissions, and gift cards. Rewards that grow the more you share.'],
           ].map(([h, b], i) => (
