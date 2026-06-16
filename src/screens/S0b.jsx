@@ -11,7 +11,7 @@ const IcoCheck = () => (
 );
 
 const CRITERIA = [
-  ['Based in the United States',                         null],
+  ['Based in the United Kingdom',                         null],
   ['18 years or older',                                  null],
   ['Public profile on at least one platform',            null],
 ];
