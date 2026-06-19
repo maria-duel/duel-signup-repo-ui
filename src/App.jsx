@@ -22,9 +22,11 @@ export default function App() {
   const navigate = useCallback((next) => {
     if (exiting !== null) return;
     const dir = next > idx ? 1 : -1;
+    const from = FLOW[idx], to = FLOW[next];
+    const fade = (from === 's0b' && to === 's1') || (from === 's1' && to === 's0b');
     setExiting({ idx, dir });
     setIdx(next);
-    setTimeout(() => setExiting(null), 360);
+    setTimeout(() => setExiting(null), fade ? 620 : 340);
   }, [idx, exiting]);
 
   const next = () => navigate(Math.min(idx + 1, FLOW.length - 1));
@@ -38,22 +40,27 @@ export default function App() {
     s3:  <S3 d={form} set={setForm} onNext={next} onBack={back} />,
     s4:  <S4 email={form.email} onNext={next} />,
     s4b: <S4b onNext={next} />,
-    s5:  <S5 />,
+    s5:  <S5 onHome={() => navigate(0)} />,
   };
 
-  const enterClass = exiting ? (exiting.dir > 0 ? 'enter-right' : 'enter-left') : '';
-  const exitClass  = exiting ? (exiting.dir > 0 ? 'exit-left'   : 'exit-right') : '';
+  const isFade = exiting && (() => {
+    const from = FLOW[exiting.idx], to = FLOW[idx];
+    return (from === 's0b' && to === 's1') || (from === 's1' && to === 's0b');
+  })();
+
+  const enterClass = exiting ? (isFade ? 'fade-in'    : exiting.dir > 0 ? 'enter-right' : 'enter-left') : '';
+  const exitClass  = exiting ? (isFade ? 'fade-out'   : exiting.dir > 0 ? 'exit-left'   : 'exit-right') : '';
 
   return (
     <div id="device">
-      <div key={`c-${idx}`} className={`screen ${enterClass}`}>
-        {screens[FLOW[idx]]}
-      </div>
       {exiting !== null && (
         <div key={`e-${exiting.idx}`} className={`screen ${exitClass}`} style={{ zIndex: 1 }}>
           {screens[FLOW[exiting.idx]]}
         </div>
       )}
+      <div key={`c-${idx}`} className={`screen ${enterClass}`} style={{ zIndex: exiting ? 2 : 0 }}>
+        {screens[FLOW[idx]]}
+      </div>
     </div>
   );
 }

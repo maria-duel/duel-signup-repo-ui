@@ -1,32 +1,147 @@
-import { C } from '../constants';
-import Input from '../components/Input';
-import Btn from '../components/Btn';
-import Steps from '../components/Steps';
+import { useState } from 'react';
+import { IMGS } from '../assets/images';
 import BackBtn from '../components/BackBtn';
-import Footer from '../components/Footer';
 
-export default function S3({ d, set, onNext, onBack }) {
-  const ok = d.instagram.trim().length > 0 && d.tiktok.trim().length > 0;
+const NavTitle = () => (
+  <p style={{
+    position: 'absolute', top: 40, left: 0, right: 0,
+    fontSize: 16, fontWeight: 700, color: '#fff', textAlign: 'center', margin: 0,
+  }}>
+    NARS Friends With Benefits
+  </p>
+);
+
+const TermsFooter = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>
+    {['Terms', 'Privacy Policy'].map(t => (
+      <span key={t} style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', textDecoration: 'underline', cursor: 'pointer' }}>
+        {t}
+      </span>
+    ))}
+  </div>
+);
+
+const PLATFORMS = [
+  { key: 'ig',  label: 'Instagram', icon: IMGS.igIcon,     iconSize: 18, optional: false },
+  { key: 'tt',  label: 'TikTok',   icon: IMGS.tiktokIcon,  iconSize: 18, optional: false },
+  { key: 'yt',  label: 'YouTube',  icon: IMGS.ytIcon,      iconSize: 18, optional: true  },
+  { key: 'fb',  label: 'Facebook', icon: IMGS.fbIcon,      iconSize: 20, optional: true  },
+];
+
+function PlatformRow({ platform, connected, onToggle, hasDivider }) {
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <>
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        height: 30,
+      }}>
+        {/* Platform info */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <img src={platform.icon} alt={platform.label} style={{ width: platform.iconSize, height: platform.iconSize }} />
+          <span style={{ fontSize: 15, fontWeight: 500, color: '#fff', lineHeight: '17px' }}>
+            {platform.label}
+          </span>
+          {platform.optional && (
+            <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', fontWeight: 400 }}>Optional</span>
+          )}
+        </div>
+
+        {/* Connect / Connected */}
+        {connected ? (
+          <button
+            onClick={onToggle}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 6,
+              border: '1px solid rgba(255,255,255,0.4)', borderRadius: 1000,
+              padding: '6px 13px', cursor: 'pointer', background: 'transparent',
+              fontFamily: 'inherit',
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="7" fill="#3d9e5f" />
+              <path d="M3.5 7.5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span style={{ fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.6)' }}>Connected</span>
+          </button>
+        ) : (
+          <button
+            onClick={onToggle}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 6,
+              border: '1px solid rgba(255,255,255,0.5)', borderRadius: 1000,
+              padding: '6px 13px', cursor: 'pointer', background: 'transparent',
+              fontFamily: 'inherit',
+            }}
+          >
+            <span style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>Connect</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        )}
+      </div>
+      {hasDivider && (
+        <div style={{ height: 1, background: 'rgba(255,255,255,0.12)', margin: '20px 0' }} />
+      )}
+    </>
+  );
+}
+
+export default function S3({ onNext, onBack }) {
+  const [connected, setConnected] = useState({});
+  const anyConnected = Object.values(connected).some(Boolean);
+  const toggle = key => setConnected(prev => ({ ...prev, [key]: !prev[key] }));
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%', background: '#000', overflow: 'hidden' }}>
       <BackBtn onClick={onBack} />
-      <div style={{ position: 'absolute', top: 84, left: '50%', transform: 'translateX(-50%)' }}>
-        <Steps step={2} />
-      </div>
-      <div style={{ position: 'absolute', top: 192, left: 16, width: 358, display: 'flex', flexDirection: 'column', gap: 20 }}>
-        <div>
-          <p style={{ fontSize: 20, color: C.text, margin: '0 0 4px', lineHeight: '28px' }}>Connect your Socials</p>
-          <p style={{ fontSize: 14, color: C.sub, margin: 0, lineHeight: '18px' }}>Add Instagram and TikTok to continue. Other platforms are optional.</p>
+      <NavTitle />
+
+      {/* Bottom-anchored content */}
+      <div style={{
+        position: 'absolute', bottom: 0, left: 32, width: 326,
+        paddingBottom: 32,
+        display: 'flex', flexDirection: 'column', gap: 32,
+      }}>
+        {/* Heading */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', fontWeight: 400 }}>Step 2 of 2</span>
+          <p style={{ fontSize: 24, fontWeight: 700, color: '#fff', margin: 0, lineHeight: '33.6px' }}>
+            Connect your Socials
+          </p>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <Input label="Instagram" placeholder="@yourhandle or instagram.com/yourhandle" value={d.instagram} onChange={v => set(p => ({ ...p, instagram: v }))} valid={d.instagram.trim().length > 0} />
-          <Input label="TikTok"    placeholder="@yourhandle or tiktok.com/yourhandle"    value={d.tiktok}    onChange={v => set(p => ({ ...p, tiktok: v }))}    valid={d.tiktok.trim().length > 0} />
-          <Input label="YouTube"   placeholder="@yourhandle or youtube.com/@yourhandle"  value={d.youtube}   onChange={v => set(p => ({ ...p, youtube: v }))}   valid={d.youtube.trim().length > 0} optional />
-          <Input label="Twitch"    placeholder="@yourhandle or twitch.com/yourhandle"    value={d.twitch}    onChange={v => set(p => ({ ...p, twitch: v }))}    valid={d.twitch.trim().length > 0} optional />
+
+        {/* Platform rows */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {PLATFORMS.map((p, i) => (
+            <PlatformRow
+              key={p.key}
+              platform={p}
+              connected={!!connected[p.key]}
+              onToggle={() => toggle(p.key)}
+              hasDivider={i < PLATFORMS.length - 1}
+            />
+          ))}
         </div>
-        <Btn label="Submit application" enabled={!!ok} onClick={onNext} />
+
+        {/* CTA */}
+        <button
+          onClick={anyConnected ? onNext : undefined}
+          style={{
+            width: '100%', height: 48, borderRadius: 1000,
+            background: '#fff', border: 'none',
+            fontSize: 14, fontWeight: 700, color: '#000',
+            fontFamily: 'inherit', cursor: anyConnected ? 'pointer' : 'default',
+            opacity: anyConnected ? 1 : 0.5,
+            transition: 'opacity 200ms',
+          }}
+        >
+          Submit application
+        </button>
+
+        <TermsFooter />
       </div>
-      <Footer />
     </div>
   );
 }

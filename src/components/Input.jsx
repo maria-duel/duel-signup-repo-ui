@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { C, COUNTRIES } from '../constants';
-import { IcoChev } from './icons';
+import { IMGS } from '../assets/images';
 
 function formatDob(raw) {
   const digits = raw.replace(/\D/g, '').slice(0, 8);
@@ -9,49 +9,48 @@ function formatDob(raw) {
   return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
 }
 
-const IcoValidCheck = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-    <circle cx="8" cy="8" r="8" fill="#3d9e5f" />
-    <path d="M4.5 8.5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+const ChevronDown = ({ open }) => (
+  <img
+    src={IMGS.chevronDown} alt=""
+    style={{ width: 20, height: 20, flexShrink: 0, transition: 'transform 200ms', transform: open ? 'rotate(180deg)' : 'none' }}
+  />
 );
 
 export default function Input({ label, placeholder, value, onChange, optional, type = 'text', select, dob, valid }) {
   const [focused, setFocused] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const fieldStyle = {
+    display: 'flex', alignItems: 'center', height: 48, padding: '0 17px',
+    borderRadius: 4, boxSizing: 'border-box',
+    background: C.inputBg,
+    border: `1px solid ${focused || open ? C.inputFocus : C.inputBorder}`,
+    transition: 'border-color 150ms',
+    gap: 8,
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%', minWidth: 0 }}>
       {label && (
         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2px 0' }}>
-          <span style={{ fontSize: 14, fontWeight: 500, color: '#292928', lineHeight: '20px' }}>{label}</span>
-          {optional && <span style={{ fontSize: 12, color: C.sub }}>Optional</span>}
+          <span style={{ fontSize: 14, fontWeight: 500, color: 'rgba(255,255,255,0.9)', lineHeight: '20px' }}>{label}</span>
+          {optional && <span style={{ fontSize: 12, color: C.dimmed }}>Optional</span>}
         </div>
       )}
       {select ? (
         <div style={{ position: 'relative' }}>
-          <div
-            onClick={() => setOpen(o => !o)}
-            style={{
-              display: 'flex', alignItems: 'center', gap: 8, height: 48, padding: '0 16px',
-              borderRadius: 4, cursor: 'pointer', boxSizing: 'border-box',
-              border: `1px solid ${open ? C.focusBorder : C.border}`,
-              background: '#fff', transition: 'border-color 150ms',
-            }}
-          >
-            <span style={{ fontSize: 14 }}>🌐</span>
-            <span style={{ flex: 1, fontSize: 14, color: value ? C.text : C.muted, lineHeight: '18px' }}>
+          <div onClick={() => setOpen(o => !o)} style={{ ...fieldStyle, cursor: 'pointer' }}>
+            <img src={IMGS.globe} alt="" style={{ width: 20, height: 20, flexShrink: 0 }} />
+            <span style={{ flex: 1, fontSize: 14, color: value ? C.text : C.sub, lineHeight: '18px' }}>
               {value || placeholder}
             </span>
-            <span style={{ color: C.muted, display: 'flex', transition: 'transform 200ms', transform: open ? 'rotate(180deg)' : 'none' }}>
-              <IcoChev />
-            </span>
+            <ChevronDown open={open} />
           </div>
           {open && (
             <div style={{
               position: 'absolute', top: 'calc(100% + 4px)', left: 0, right: 0, zIndex: 200,
-              background: '#fff', borderRadius: 4, border: `1px solid ${C.border}`,
-              boxShadow: '0 4px 24px rgba(0,0,0,0.1)', overflow: 'hidden',
+              background: '#1a1a1a', borderRadius: 4, border: `1px solid ${C.inputBorder}`,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.6)', overflow: 'hidden',
             }}>
               {COUNTRIES.map(c => (
                 <div
@@ -67,12 +66,7 @@ export default function Input({ label, placeholder, value, onChange, optional, t
           )}
         </div>
       ) : (
-        <div style={{
-          display: 'flex', alignItems: 'center', height: 48, padding: '0 16px',
-          borderRadius: 4, boxSizing: 'border-box', background: '#fff',
-          border: `1px solid ${focused ? C.focusBorder : C.border}`,
-          transition: 'border-color 150ms',
-        }}>
+        <div style={fieldStyle}>
           <input
             type={type}
             inputMode={dob ? 'numeric' : undefined}
@@ -87,7 +81,12 @@ export default function Input({ label, placeholder, value, onChange, optional, t
               fontSize: 14, color: C.text, lineHeight: '18px', fontFamily: 'inherit',
             }}
           />
-          {valid && <IcoValidCheck />}
+          {valid && (
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
+              <circle cx="8" cy="8" r="8" fill="#3d9e5f" />
+              <path d="M4.5 8.5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          )}
         </div>
       )}
     </div>
