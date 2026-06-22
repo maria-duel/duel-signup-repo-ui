@@ -103,12 +103,16 @@ export default function S3({ onNext, onBack }) {
         position: 'absolute', bottom: 0, left: 32, width: 326,
         paddingBottom: 32,
         display: 'flex', flexDirection: 'column', gap: 32,
+        animation: 'contentFadeUp 420ms cubic-bezier(0.22,1,0.36,1) both',
       }}>
         {/* Heading */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', fontWeight: 400 }}>Step 2 of 2</span>
           <p style={{ fontSize: 24, fontWeight: 700, color: '#fff', margin: 0, lineHeight: '33.6px' }}>
             Connect your Socials
+          </p>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', margin: 0, lineHeight: '20px', marginTop: 8 }}>
+            We use this to review your content — we never post on your behalf.
           </p>
         </div>
 
@@ -133,8 +137,9 @@ export default function S3({ onNext, onBack }) {
             background: '#fff', border: 'none',
             fontSize: 14, fontWeight: 700, color: '#000',
             fontFamily: 'inherit', cursor: anyConnected ? 'pointer' : 'default',
-            opacity: anyConnected ? 1 : 0.5,
-            transition: 'opacity 200ms',
+            opacity: anyConnected ? 1 : 0.4,
+            transform: anyConnected ? 'scale(1)' : 'scale(0.97)',
+            transition: 'opacity 250ms ease, transform 350ms cubic-bezier(0.34,1.56,0.64,1)',
           }}
         >
           Submit application

@@ -34,6 +34,7 @@ export default function S2({ d, set, onNext, onBack }) {
         position: 'absolute', bottom: 0, left: 32, width: 326,
         paddingBottom: 32,
         display: 'flex', flexDirection: 'column', gap: 32,
+        animation: 'contentFadeUp 420ms cubic-bezier(0.22,1,0.36,1) both',
       }}>
         {/* Heading block */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -72,8 +73,9 @@ export default function S2({ d, set, onNext, onBack }) {
             background: '#fff', border: 'none',
             fontSize: 14, fontWeight: 700, color: '#000',
             fontFamily: 'inherit', cursor: ok ? 'pointer' : 'default',
-            opacity: ok ? 1 : 0.5,
-            transition: 'opacity 200ms',
+            opacity: ok ? 1 : 0.4,
+            transform: ok ? 'scale(1)' : 'scale(0.97)',
+            transition: 'opacity 250ms ease, transform 350ms cubic-bezier(0.34,1.56,0.64,1)',
           }}
         >
           Continue

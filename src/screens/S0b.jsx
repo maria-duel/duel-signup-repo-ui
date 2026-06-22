@@ -47,7 +47,7 @@ export default function S0b({ onNext, onBack }) {
         display: 'flex', flexDirection: 'column', gap: 32,
       }}>
         {/* Heading */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4, animation: 'contentFadeUp 420ms cubic-bezier(0.22,1,0.36,1) 40ms both' }}>
           <p style={{ fontSize: 24, fontWeight: 700, color: '#fff', margin: 0, lineHeight: '33.6px' }}>
             Before you start
           </p>
@@ -59,7 +59,7 @@ export default function S0b({ onNext, onBack }) {
         {/* Criteria */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {CRITERIA.map((label, i) => (
-            <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'center', animation: `contentFadeUp 400ms cubic-bezier(0.22,1,0.36,1) ${120 + i * 70}ms both` }}>
               <img src={IMGS.check} alt="" style={{ width: 24, height: 24, flexShrink: 0 }} />
               <p style={{ fontSize: 16, color: '#fff', margin: 0, lineHeight: '22px' }}>{label}</p>
             </div>
@@ -67,7 +67,7 @@ export default function S0b({ onNext, onBack }) {
         </div>
 
         {/* Buttons + disclaimer */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, animation: 'contentFadeUp 400ms cubic-bezier(0.22,1,0.36,1) 340ms both' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <Btn label="I meet all of these" onClick={onNext} />
             {declined ? (

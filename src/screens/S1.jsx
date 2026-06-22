@@ -46,6 +46,7 @@ export default function S1({ d, set, onNext, onBack }) {
         position: 'absolute', bottom: 0, left: 32, width: 326,
         paddingBottom: 32,
         display: 'flex', flexDirection: 'column', gap: 24,
+        animation: 'contentFadeUp 420ms cubic-bezier(0.22,1,0.36,1) both',
       }}>
         {/* Heading */}
         <p style={{ fontSize: 24, fontWeight: 700, color: '#fff', margin: 0, lineHeight: '33.6px', textAlign: 'center' }}>

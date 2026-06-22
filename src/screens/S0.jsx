@@ -4,16 +4,16 @@ import duelLogo from '../assets/duel-logo.svg';
 
 const SLIDES = [
   {
-    headline: 'Share what you love.\nGet rewarded.',
-    body: 'Create content around a brand you love and get recognised.',
+    headline: 'Create content that counts',
+    body: 'Complete challenges and create content that reaches NARS, not just your feed.',
   },
   {
-    headline: 'Get seen by the brand',
-    body: 'Create content around a brand you love and get recognised and celebrated by your audience.',
+    headline: 'Be seen, not just followed',
+    body: 'The NARS team reviews your content — and can reshare, reward, or reach out.',
   },
   {
-    headline: 'Earn as you create',
-    body: 'Create content around a brand you love and earn. Points, commissions and gift cards.',
+    headline: 'Unlock earning as you grow',
+    body: 'Points, commissions, and gift cards. Rewards that grow the more you share.',
   },
 ];
 
@@ -40,16 +40,23 @@ export default function S0({ onNext }) {
     <div style={{ position: 'relative', width: '100%', height: '100%', background: '#000', overflow: 'hidden' }}>
 
       {/* Photo grid — 503px wide, offset left by 54px */}
-      <div style={{ position: 'absolute', left: -54, top: 0, width: 503, height: 530 }}>
+      <div style={{ position: 'absolute', left: -54, top: 0, width: 503, height: 530, animation: 'gridDrift 22s ease-in-out -7s infinite' }}>
         {PHOTO_GRID.map(({ src, left, top, w, h }, i) => (
-          <img
-            key={i} src={src} alt="" draggable={false}
+          <div
+            key={i}
             style={{
               position: 'absolute', left, top, width: w, height: h,
-              borderRadius: 6, objectFit: 'cover',
+              borderRadius: 6, overflow: 'hidden',
               border: '1px solid rgba(0,0,0,0.08)',
             }}
-          />
+          >
+            <img
+              src={src} alt="" draggable={false}
+              style={{
+                width: '100%', height: '100%', objectFit: 'cover', display: 'block',
+              }}
+            />
+          </div>
         ))}
         {/* Top gradient fade */}
         <div style={{
@@ -64,18 +71,6 @@ export default function S0({ onNext }) {
           pointerEvents: 'none',
         }} />
       </div>
-
-      {/* Sign in — top right */}
-      <button
-        style={{
-          position: 'absolute', top: 20, right: 20,
-          background: 'transparent', border: 'none',
-          fontSize: 14, fontWeight: 700, color: '#fff',
-          fontFamily: 'inherit', cursor: 'pointer',
-        }}
-      >
-        Sign in
-      </button>
 
       {/* NARS logo + brand name */}
       <div style={{
@@ -92,7 +87,7 @@ export default function S0({ onNext }) {
 
       {/* Bottom content area */}
       <div style={{
-        position: 'absolute', bottom: 0, left: 32, width: 326,
+        position: 'absolute', bottom: 0, left: 20, width: 350,
         paddingBottom: 32,
         display: 'flex', flexDirection: 'column', gap: 57,
         alignItems: 'center',
@@ -115,12 +110,11 @@ export default function S0({ onNext }) {
             </div>
 
             {/* Headline + Body grouped at 12px gap */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, width: '100%' }}>
+            <div key={slide} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, width: '100%', animation: 'contentFadeUp 350ms cubic-bezier(0.22,1,0.36,1) both' }}>
               <p style={{
-                fontSize: 24, fontWeight: 700, color: '#fff',
-                textAlign: 'center', lineHeight: '33.6px', margin: 0,
+                fontSize: 20, fontWeight: 700, color: '#fff',
+                textAlign: 'center', lineHeight: '28px', margin: 0,
                 whiteSpace: 'pre-line',
-                transition: 'opacity 0.4s ease',
               }}>
                 {headline}
               </p>
@@ -145,9 +139,9 @@ export default function S0({ onNext }) {
                   key={i}
                   onClick={() => setSlide(i)}
                   style={{
-                    width: 6, height: 6, borderRadius: '50%',
+                    width: i === slide ? 18 : 6, height: 6, borderRadius: 100,
                     background: i === slide ? '#fff' : 'rgba(255,255,255,0.3)',
-                    transition: 'background 0.3s ease',
+                    transition: 'width 300ms cubic-bezier(0.34,1.56,0.64,1), background 300ms ease',
                     cursor: 'pointer',
                   }}
                 />
@@ -155,19 +149,30 @@ export default function S0({ onNext }) {
             </div>
           </div>
 
-          {/* Apply now CTA */}
-          <button
-            className="pressable"
-            onClick={onNext}
-            style={{
-              width: '100%', height: 48, borderRadius: 1000,
-              background: '#fff', border: 'none',
-              fontSize: 14, fontWeight: 700, color: '#000',
-              fontFamily: 'inherit',
-            }}
-          >
-            Apply now
-          </button>
+          {/* Apply now CTA + Sign in */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: '100%', alignItems: 'center' }}>
+            <button
+              className="pressable"
+              onClick={onNext}
+              style={{
+                width: '100%', height: 48, borderRadius: 1000,
+                background: '#fff', border: 'none',
+                fontSize: 14, fontWeight: 700, color: '#000',
+                fontFamily: 'inherit',
+              }}
+            >
+              Apply now
+            </button>
+            <button
+              style={{
+                background: 'transparent', border: 'none',
+                fontSize: 14, fontWeight: 700, color: '#fff',
+                fontFamily: 'inherit', cursor: 'pointer', padding: '4px 0',
+              }}
+            >
+              Sign in
+            </button>
+          </div>
         </div>
 
         {/* Powered by Duel */}

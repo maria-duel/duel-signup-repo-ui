@@ -44,7 +44,7 @@ export default function S5({ onHome }) {
           fontSize: 15, color: 'rgba(255,255,255,0.65)', margin: 0, lineHeight: '22px', maxWidth: 272,
           animation: 's5FadeUp 0.5s ease 0.38s both',
         }}>
-          We're reviewing your application and will be in touch within 3–5 business days. Keep an eye on your inbox.
+          We're reviewing your application and will be in touch usually within 1–3 days. Keep an eye on your inbox.
         </p>
       </div>
 

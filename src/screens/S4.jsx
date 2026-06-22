@@ -89,7 +89,9 @@ export default function S4({ email, onNext }) {
             transition: 'opacity 300ms',
           }}
         >
-          {seconds > 0 ? `Resend email (${seconds}s)` : 'Resend email'}
+          {seconds > 0 ? (
+            <>Resend email (<span key={seconds} style={{ display: 'inline-block', animation: 'timerTick 300ms ease' }}>{seconds}s</span>)</>
+          ) : 'Resend email'}
         </button>
       </div>
     </div>
