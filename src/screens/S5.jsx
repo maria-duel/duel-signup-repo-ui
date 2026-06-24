@@ -28,7 +28,7 @@ export default function S5({ onHome }) {
           marginBottom: 4,
           animation: 's5PopIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, s5RingPulse 1.6s ease-out 0.55s infinite',
         }}>
-          <span style={{ fontSize: 36, lineHeight: 1, userSelect: 'none' }}>🎉</span>
+          <span style={{ fontSize: 36, lineHeight: 1, userSelect: 'none' }}>⏳</span>
         </div>
 
         {/* Heading */}
