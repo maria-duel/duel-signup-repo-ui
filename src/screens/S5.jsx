@@ -36,7 +36,7 @@ export default function S5({ onHome }) {
           fontSize: 24, fontWeight: 700, color: '#fff', margin: 0, lineHeight: '33.6px',
           animation: 's5FadeUp 0.5s ease 0.25s both',
         }}>
-          You're in the queue!
+          Now it's NARS's turn.
         </p>
 
         {/* Body */}
@@ -44,8 +44,32 @@ export default function S5({ onHome }) {
           fontSize: 15, color: 'rgba(255,255,255,0.65)', margin: 0, lineHeight: '22px', maxWidth: 272,
           animation: 's5FadeUp 0.5s ease 0.38s both',
         }}>
-          We're reviewing your application and will be in touch usually within 1–3 days. Keep an eye on your inbox.
+          The NARS team will review your application and be in touch by email, usually within 1–3 days.
         </p>
+
+        {/* Teaser */}
+        <div style={{
+          marginTop: 8, padding: '16px 20px', borderRadius: 14,
+          background: 'rgba(255,255,255,0.07)',
+          display: 'flex', flexDirection: 'column', gap: 10, textAlign: 'left', maxWidth: 300,
+          animation: 's5FadeUp 0.5s ease 0.5s both',
+        }}>
+          <p style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.45)', margin: 0, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            If you're accepted, here's what happens next:
+          </p>
+          {[
+            'Get a welcome email from NARS Friends with Benefits',
+            'Build your creator profile',
+            'Complete your first challenge',
+          ].map((step, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', fontWeight: 600, flexShrink: 0, marginTop: 1 }}>
+                {i < 2 ? '→' : '✦'}
+              </span>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', margin: 0, lineHeight: '18px' }}>{step}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Back to homepage */}
