@@ -4,8 +4,8 @@ import duelLogo from '../assets/duel-logo.svg';
 
 const SLIDES = [
   {
-    headline: 'Create content that counts',
-    body: 'Complete challenges and create content that reaches NARS, not just your feed.',
+    headline: 'Not just a NARS fan. A NARS creator.',
+    body: 'Apply to create content directly for NARS, and go from customer to creator.',
   },
   {
     headline: 'Be seen, not just followed',
