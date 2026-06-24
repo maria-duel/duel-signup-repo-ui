@@ -5,7 +5,7 @@ import duelLogo from '../assets/duel-logo.svg';
 const SLIDES = [
   {
     headline: 'Not just a NARS fan. A NARS creator.',
-    body: 'Apply to create content directly for NARS, and go from customer to creator.',
+    body: 'Apply to represent a brand you already love, as a creator they handpicked.',
   },
   {
     headline: 'Be seen, not just followed',
