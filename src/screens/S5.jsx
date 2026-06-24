@@ -36,7 +36,7 @@ export default function S5({ onHome }) {
           fontSize: 24, fontWeight: 700, color: '#fff', margin: 0, lineHeight: '33.6px',
           animation: 's5FadeUp 0.5s ease 0.25s both',
         }}>
-          Now it's NARS's turn.
+          Now it's our turn.
         </p>
 
         {/* Body */}
