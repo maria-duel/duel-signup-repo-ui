@@ -10,10 +10,12 @@ function formatDob(raw) {
 }
 
 const ChevronDown = ({ open }) => (
-  <img
-    src={IMGS.chevronDown} alt=""
-    style={{ width: 20, height: 20, flexShrink: 0, transition: 'transform 200ms', transform: open ? 'rotate(180deg)' : 'none' }}
-  />
+  <svg
+    width="20" height="20" viewBox="0 0 20 20" fill="none"
+    style={{ flexShrink: 0, transition: 'transform 200ms', transform: open ? 'rotate(180deg)' : 'none' }}
+  >
+    <path d="M5 7.5L10 12.5L15 7.5" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
 );
 
 export default function Input({ label, placeholder, value, onChange, optional, type = 'text', select, dob, valid }) {

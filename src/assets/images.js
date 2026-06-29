@@ -1,54 +1,54 @@
-// Figma-exported asset URLs (valid for 7 days from 2026-06-19)
+// Figma-exported asset URLs (valid for 7 days from 2026-06-29)
 export const IMGS = {
   // Landing grid photos
-  grid1: 'https://www.figma.com/api/mcp/asset/c6a66431-9f77-490b-8f76-150795cee131',
-  grid4: 'https://www.figma.com/api/mcp/asset/7be7951e-7fef-421e-aab4-bcbf6dfd4c68',
-  grid2: 'https://www.figma.com/api/mcp/asset/92f446da-d193-4db2-8c9f-fd5ef49443de',
-  grid5: 'https://www.figma.com/api/mcp/asset/4bea0ab0-e859-473c-a192-2d6a3687479b',
-  grid3: 'https://www.figma.com/api/mcp/asset/d5bea4a0-7e56-4bc2-889b-f6faa2494058',
-  grid6: 'https://www.figma.com/api/mcp/asset/6b83b037-3534-4a43-8bc2-d49ff856915e',
+  grid1: 'https://www.figma.com/api/mcp/asset/024e746c-a233-4dfb-a409-73cfd826e3ef',
+  grid4: 'https://www.figma.com/api/mcp/asset/1e055cbb-6d72-42c1-ae9c-83d0479c9d44',
+  grid2: 'https://www.figma.com/api/mcp/asset/816255c0-f2b4-4f13-b9d3-5087500f680c',
+  grid5: 'https://www.figma.com/api/mcp/asset/471b87ac-a515-4a6e-b760-cd0df4fa0fce',
+  grid3: 'https://www.figma.com/api/mcp/asset/70aaee2e-a1fe-4132-8628-5b17069add4b',
+  grid6: 'https://www.figma.com/api/mcp/asset/58a71e31-3467-491c-be86-e145ebe9bacc',
 
   // NARS logo (white)
-  narsLogo: 'https://www.figma.com/api/mcp/asset/3439845a-02de-498b-8bdb-e95f957d5990',
+  narsLogo: 'https://www.figma.com/api/mcp/asset/e0ee11ad-94c0-4b16-a6b7-cd76650ccd28',
 
   // Full-bleed background images
-  bgEligibility: 'https://www.figma.com/api/mcp/asset/0b20f9b3-428e-4143-9fe5-6579930cc7e2',
-  bgAccountBlurred: 'https://www.figma.com/api/mcp/asset/e32ae142-9d91-47f7-97d1-015ffe8bffc3',
+  bgEligibility:    'https://www.figma.com/api/mcp/asset/0dd20551-3b57-4b41-9c9c-1f6a25024b4a',
+  bgAccountBlurred: 'https://www.figma.com/api/mcp/asset/43d53e4b-8058-4e4f-8f60-1f735a117ec0',
 
   // Check icon (eligibility)
-  check: 'https://www.figma.com/api/mcp/asset/49bbf3de-cb8b-4882-881a-e0eef66b00da',
+  check: 'https://www.figma.com/api/mcp/asset/7e575f5e-e2a3-47d5-bc5f-50e29bcc4d75',
 
   // Social auth icons (S1)
-  icoGoogle: 'https://www.figma.com/api/mcp/asset/b9b25b82-2418-4434-8375-5e272fa368c7',
-  icoTikTok: 'https://www.figma.com/api/mcp/asset/aa2fb1ed-2c76-4931-aed4-daa9ffe4364d',
-  icoMeta:   'https://www.figma.com/api/mcp/asset/767482ff-4a87-4ac4-b77a-02e3d6433239',
-  icoMail:   'https://www.figma.com/api/mcp/asset/c37e6c25-3503-4cac-b75e-e577f0f46c96',
+  icoGoogle: 'https://www.figma.com/api/mcp/asset/e5d66f7b-a333-4ffc-9079-fd321f1c2657',
+  icoTikTok: 'https://www.figma.com/api/mcp/asset/e2858bcd-e17a-438b-bffa-fddccdc3807b',
+  icoMeta:   'https://www.figma.com/api/mcp/asset/6f6c7452-deeb-4b17-8c84-824f4e7f11bf',
+  icoMail:   'https://www.figma.com/api/mcp/asset/98d6996e-9aa6-418f-8040-1816e77bd6ab',
 
   // Input icons (S2)
-  globe:       'https://www.figma.com/api/mcp/asset/163fdc73-8601-4ea7-abd5-8a15dea80c14',
-  chevronDown: 'https://www.figma.com/api/mcp/asset/6c1675f1-9338-4df3-9aa2-df1f351a7667',
+  globe:       'https://www.figma.com/api/mcp/asset/16d0b52e-bc87-40bb-8f9d-38aa9733f4b1',
+  chevronDown: 'https://www.figma.com/api/mcp/asset/c29aeb77-0c0f-4345-b566-ee1d83fa4643',
 
   // Social platform icons (S3)
-  igIcon:     'https://www.figma.com/api/mcp/asset/fbe33bc6-a71b-40ca-bc7a-34f6df793933',
-  tiktokIcon: 'https://www.figma.com/api/mcp/asset/39f006ff-cec1-4a89-9c89-78408b70ca78',
-  ytIcon:     'https://www.figma.com/api/mcp/asset/159fd911-9a66-449c-bb6d-0a8debbea8db',
-  fbIcon:     'https://www.figma.com/api/mcp/asset/100e91ad-2006-4c01-b8ac-9d82379e44da',
-  linkIcon:   'https://www.figma.com/api/mcp/asset/fc080645-a2e7-4e41-964c-05e09a72883e',
+  igIcon:     'https://www.figma.com/api/mcp/asset/e0cfa156-3eb1-4ae5-bf36-922a1d7fafd4',
+  tiktokIcon: 'https://www.figma.com/api/mcp/asset/e43c1fa2-c281-46de-b3d2-98ebf02881cd',
+  ytIcon:     'https://www.figma.com/api/mcp/asset/c904a3b7-4471-433b-9f3e-4d68df33936a',
+  fbIcon:     'https://www.figma.com/api/mcp/asset/adbafe43-a9ac-47c2-b53b-5595e656b985',
+  linkIcon:   'https://www.figma.com/api/mcp/asset/2b577820-d5b8-44d8-acaa-0ed692315faa',
 
   // Verification / confirmation icons
-  mailCircle:   'https://www.figma.com/api/mcp/asset/e5b8e697-557a-403c-bb92-b19aac90ef35',
-  confirmIcon:  'https://www.figma.com/api/mcp/asset/7b2eec45-033c-4fb2-8ae9-21416c5af3cd',
+  mailCircle:  'https://www.figma.com/api/mcp/asset/49bdc025-3370-422f-b7b2-a7172f3f6542',
+  confirmIcon: 'https://www.figma.com/api/mcp/asset/1e620424-9fde-434e-9c9b-e566665ea316',
 
   // Gmail mock icons
-  gmailArrowBack:   'https://www.figma.com/api/mcp/asset/7909f9cb-a20a-4d10-9852-890d1838cacb',
-  gmailArchive:     'https://www.figma.com/api/mcp/asset/6123307d-1e5a-46fc-aa2e-3c66527aaaa7',
-  gmailDelete:      'https://www.figma.com/api/mcp/asset/8f2c3a3a-d8e8-4c36-a4d1-42a5c95467d1',
-  gmailMailOutline: 'https://www.figma.com/api/mcp/asset/077202d1-5222-41b6-8168-8a57b9bd2ed9',
-  gmailMoreVert:    'https://www.figma.com/api/mcp/asset/cec2c47d-85e8-4095-85c3-c1dea5bf7722',
-  gmailStar:        'https://www.figma.com/api/mcp/asset/3175a6fe-c393-4592-9d63-312de1013a7e',
-  gmailChevDown:    'https://www.figma.com/api/mcp/asset/1893cb3d-2316-447b-9d73-431312d4945d',
-  gmailReply:       'https://www.figma.com/api/mcp/asset/907bd709-b49e-475d-8d12-7e5748ae3339',
-  narsLogoBlack:    'https://www.figma.com/api/mcp/asset/77cf1ea6-b5cf-4cba-a9e7-3787064b93b9',
-  gmailMailFilled:  'https://www.figma.com/api/mcp/asset/6af63950-4c0b-4a4c-bded-aa0848638fb7',
-  gmailVideoCall:   'https://www.figma.com/api/mcp/asset/e776acd4-65e4-43d7-8e2a-4749cd07e7cb',
+  gmailArrowBack:   'https://www.figma.com/api/mcp/asset/acf8a490-b1fb-48bc-bf55-3b77a2a80680',
+  gmailArchive:     'https://www.figma.com/api/mcp/asset/971521a8-ce56-4e47-9efa-8683adcc0dee',
+  gmailDelete:      'https://www.figma.com/api/mcp/asset/da7531bc-cec2-436f-b4a3-b219a1a2f40e',
+  gmailMailOutline: 'https://www.figma.com/api/mcp/asset/54d8ba9d-70ee-45e3-a837-4780f21fd2f3',
+  gmailMoreVert:    'https://www.figma.com/api/mcp/asset/8bb88252-6d6b-4153-a4d0-651c12bfaf11',
+  gmailStar:        'https://www.figma.com/api/mcp/asset/4800b7c3-1bc0-42f5-9faf-c38d3b3cfe40',
+  gmailChevDown:    'https://www.figma.com/api/mcp/asset/1a3dfe55-c23e-4b6c-af0b-d056dda7a283',
+  gmailReply:       'https://www.figma.com/api/mcp/asset/c39f9b83-d25a-4c77-a586-883d40c7398f',
+  narsLogoBlack:    'https://www.figma.com/api/mcp/asset/e545fc78-0259-46f4-84c0-a78bf6237ca2',
+  gmailMailFilled:  'https://www.figma.com/api/mcp/asset/f8fcc16b-b7e0-4199-a826-879a41c74d50',
+  gmailVideoCall:   'https://www.figma.com/api/mcp/asset/14de7d7e-9a02-4568-bee9-7baee8ea8472',
 };
