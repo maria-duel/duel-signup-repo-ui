@@ -1,4 +1,14 @@
-import { IMGS } from '../assets/images';
+import narsLogo from '../assets/icons/nars-logo.svg';
+import gmailArrowBack from '../assets/icons/gmail-arrow-back.svg';
+import gmailArchive from '../assets/icons/gmail-archive.svg';
+import gmailDelete from '../assets/icons/gmail-delete.svg';
+import gmailMailOutline from '../assets/icons/gmail-mail-outline.svg';
+import gmailMoreVert from '../assets/icons/gmail-more-vert.svg';
+import gmailStar from '../assets/icons/gmail-star.svg';
+import gmailChevDown from '../assets/icons/gmail-chev-down.svg';
+import gmailReply from '../assets/icons/gmail-reply.svg';
+import gmailMailFilled from '../assets/icons/gmail-mail-filled.svg';
+import gmailVideoCall from '../assets/icons/gmail-video-call.svg';
 
 export default function S4b({ onNext }) {
   return (
@@ -10,12 +20,12 @@ export default function S4b({ onNext }) {
         background: '#fff', display: 'flex', alignItems: 'center',
         justifyContent: 'space-between', padding: '0 14px',
       }}>
-        <img src={IMGS.gmailArrowBack} alt="" style={{ width: 24, height: 24 }} />
+        <img src={gmailArrowBack} alt="" style={{ width: 24, height: 24 }} />
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
-          <img src={IMGS.gmailArchive}     alt="" style={{ width: 24, height: 24 }} />
-          <img src={IMGS.gmailDelete}      alt="" style={{ width: 24, height: 24 }} />
-          <img src={IMGS.gmailMailOutline} alt="" style={{ width: 24, height: 24 }} />
-          <img src={IMGS.gmailMoreVert}    alt="" style={{ width: 24, height: 24 }} />
+          <img src={gmailArchive}     alt="" style={{ width: 24, height: 24 }} />
+          <img src={gmailDelete}      alt="" style={{ width: 24, height: 24 }} />
+          <img src={gmailMailOutline} alt="" style={{ width: 24, height: 24 }} />
+          <img src={gmailMoreVert}    alt="" style={{ width: 24, height: 24 }} />
         </div>
       </div>
 
@@ -35,7 +45,7 @@ export default function S4b({ onNext }) {
           <div style={{ background: '#eee', borderRadius: 4, padding: '3px 6px', fontSize: 12, color: '#222', whiteSpace: 'nowrap', marginTop: 4, flexShrink: 0 }}>
             Inbox
           </div>
-          <img src={IMGS.gmailStar} alt="" style={{ width: 24, height: 24, marginTop: 4, flexShrink: 0 }} />
+          <img src={gmailStar} alt="" style={{ width: 24, height: 24, marginTop: 4, flexShrink: 0 }} />
         </div>
 
         {/* Sender row */}
@@ -52,13 +62,13 @@ export default function S4b({ onNext }) {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <span style={{ fontSize: 13, color: '#47474f' }}>to me</span>
-                <img src={IMGS.gmailChevDown} alt="" style={{ width: 16, height: 16 }} />
+                <img src={gmailChevDown} alt="" style={{ width: 16, height: 16 }} />
               </div>
             </div>
           </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-            <img src={IMGS.gmailReply}    alt="" style={{ width: 24, height: 24 }} />
-            <img src={IMGS.gmailMoreVert} alt="" style={{ width: 24, height: 24 }} />
+            <img src={gmailReply}    alt="" style={{ width: 24, height: 24 }} />
+            <img src={gmailMoreVert} alt="" style={{ width: 24, height: 24 }} />
           </div>
         </div>
 
@@ -72,7 +82,7 @@ export default function S4b({ onNext }) {
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             padding: '24px 0 20px', gap: 6,
           }}>
-            <img src={IMGS.narsLogo} alt="NARS" style={{ height: 35, width: 84, objectFit: 'contain' }} />
+            <img src={narsLogo} alt="NARS" style={{ height: 35, width: 84, objectFit: 'contain' }} />
             <span style={{ fontSize: 14, fontWeight: 600, color: '#fff', letterSpacing: '0.01em' }}>
               Friends With Benefits
             </span>
@@ -133,7 +143,7 @@ export default function S4b({ onNext }) {
             background: '#e2e0f8', borderRadius: 100,
             padding: '4px 18px', display: 'flex', alignItems: 'center', position: 'relative',
           }}>
-            <img src={IMGS.gmailMailFilled} alt="" style={{ width: 24, height: 24 }} />
+            <img src={gmailMailFilled} alt="" style={{ width: 24, height: 24 }} />
             <div style={{
               position: 'absolute', top: -2, right: -2,
               background: '#b3261d', borderRadius: 100,
@@ -145,7 +155,7 @@ export default function S4b({ onNext }) {
           </div>
           {/* Video tab */}
           <div style={{ background: '#f0edf6', borderRadius: 100, padding: '4px 18px' }}>
-            <img src={IMGS.gmailVideoCall} alt="" style={{ width: 24, height: 24 }} />
+            <img src={gmailVideoCall} alt="" style={{ width: 24, height: 24 }} />
           </div>
         </div>
         {/* Home bar */}

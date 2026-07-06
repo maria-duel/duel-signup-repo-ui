@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
-import { IMGS } from '../assets/images';
 import duelLogo from '../assets/duel-logo.svg';
+import narsLogo from '../assets/icons/nars-logo.svg';
+import grid1 from '../assets/images/grid1.jpeg';
+import grid2 from '../assets/images/grid2.jpeg';
+import grid3 from '../assets/images/grid3.jpeg';
+import grid4 from '../assets/images/grid4.jpeg';
+import grid5 from '../assets/images/grid5.jpeg';
+import grid6 from '../assets/images/grid6.jpeg';
 
 const SLIDES = [
   {
@@ -18,12 +24,12 @@ const SLIDES = [
 ];
 
 const PHOTO_GRID = [
-  { src: IMGS.grid1, left: 0,   top: 10,  w: 159, h: 252 },
-  { src: IMGS.grid4, left: 0,   top: 278, w: 159, h: 252 },
-  { src: IMGS.grid2, left: 172, top: 0,   w: 159, h: 252 },
-  { src: IMGS.grid5, left: 172, top: 268, w: 159, h: 252 },
-  { src: IMGS.grid3, left: 344, top: 10,  w: 159, h: 252 },
-  { src: IMGS.grid6, left: 344, top: 278, w: 159, h: 252 },
+  { src: grid1, left: 0,   top: 10,  w: 159, h: 252 },
+  { src: grid4, left: 0,   top: 278, w: 159, h: 252 },
+  { src: grid2, left: 172, top: 0,   w: 159, h: 252 },
+  { src: grid5, left: 172, top: 268, w: 159, h: 252 },
+  { src: grid3, left: 344, top: 10,  w: 159, h: 252 },
+  { src: grid6, left: 344, top: 278, w: 159, h: 252 },
 ];
 
 export default function S0({ onNext }) {
@@ -78,7 +84,7 @@ export default function S0({ onNext }) {
         display: 'flex', flexDirection: 'column', alignItems: 'center',
       }}>
         <div style={{ height: 60, display: 'flex', alignItems: 'center' }}>
-          <img src={IMGS.narsLogo} alt="NARS" style={{ width: 84, height: 35, objectFit: 'contain' }} />
+          <img src={narsLogo} alt="NARS" style={{ width: 84, height: 35, objectFit: 'contain' }} />
         </div>
         <p style={{ fontSize: 16, fontWeight: 700, color: '#fff', margin: 0, whiteSpace: 'nowrap', lineHeight: 'normal' }}>
           Friends With Benefits

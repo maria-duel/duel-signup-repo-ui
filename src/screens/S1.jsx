@@ -1,6 +1,10 @@
-import { IMGS } from '../assets/images';
 import Btn from '../components/Btn';
 import BackBtn from '../components/BackBtn';
+import streetPortrait from '../assets/images/street-portrait.jpeg';
+import icoGoogle from '../assets/icons/ico-google.svg';
+import icoTikTok from '../assets/icons/ico-tiktok.svg';
+import icoMeta from '../assets/icons/ico-meta.svg';
+import icoMail from '../assets/icons/ico-mail.svg';
 
 const NavTitle = () => (
   <p style={{
@@ -12,9 +16,9 @@ const NavTitle = () => (
 );
 
 const SSO_OPTIONS = [
-  { label: 'Continue with Google', img: IMGS.icoGoogle },
-  { label: 'Continue with TikTok', img: IMGS.icoTikTok },
-  { label: 'Continue with Meta',   img: IMGS.icoMeta   },
+  { label: 'Continue with Google', img: icoGoogle },
+  { label: 'Continue with TikTok', img: icoTikTok },
+  { label: 'Continue with Meta',   img: icoMeta   },
 ];
 
 export default function S1({ d, set, onNext, onBack }) {
@@ -26,7 +30,7 @@ export default function S1({ d, set, onNext, onBack }) {
       {/* Blurred background photo */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: 480 }}>
         <img
-          src={IMGS.bgAccountBlurred} alt="" draggable={false}
+          src={streetPortrait} alt="" draggable={false}
           style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(22px)', transform: 'scale(1.05)' }}
         />
         {/* Gradient: clear mid, fully black before bottom content */}
@@ -115,7 +119,7 @@ export default function S1({ d, set, onNext, onBack }) {
               position: 'relative',
             }}
           >
-            <img src={IMGS.icoMail} alt="" style={{ position: 'absolute', left: 20, width: 20, height: 20 }} />
+            <img src={icoMail} alt="" style={{ position: 'absolute', left: 20, width: 20, height: 20 }} />
             Continue with email
           </button>
         </div>

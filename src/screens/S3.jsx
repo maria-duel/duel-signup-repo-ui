@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import { IMGS } from '../assets/images';
 import BackBtn from '../components/BackBtn';
+import igIcon from '../assets/icons/ig-icon.svg';
+import tiktokIcon from '../assets/icons/tiktok-icon.svg';
+import ytIcon from '../assets/icons/yt-icon.svg';
+import fbIcon from '../assets/icons/fb-icon.svg';
 
 const NavTitle = () => (
   <p style={{
@@ -22,10 +25,10 @@ const TermsFooter = () => (
 );
 
 const PLATFORMS = [
-  { key: 'ig',  label: 'Instagram', icon: IMGS.igIcon,     iconSize: 18, optional: false },
-  { key: 'tt',  label: 'TikTok',   icon: IMGS.tiktokIcon,  iconSize: 18, optional: false },
-  { key: 'yt',  label: 'YouTube',  icon: IMGS.ytIcon,      iconSize: 18, optional: true  },
-  { key: 'fb',  label: 'Facebook', icon: IMGS.fbIcon,      iconSize: 20, optional: true  },
+  { key: 'ig',  label: 'Instagram', icon: igIcon,     iconSize: 18, optional: false },
+  { key: 'tt',  label: 'TikTok',   icon: tiktokIcon,  iconSize: 18, optional: false },
+  { key: 'yt',  label: 'YouTube',  icon: ytIcon,      iconSize: 18, optional: true  },
+  { key: 'fb',  label: 'Facebook', icon: fbIcon,      iconSize: 20, optional: true  },
 ];
 
 function PlatformRow({ platform, connected, onToggle, hasDivider }) {

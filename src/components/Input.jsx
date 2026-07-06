@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { C, COUNTRIES } from '../constants';
-import { IMGS } from '../assets/images';
+import globeIcon from '../assets/icons/globe.svg';
 
 function formatDob(raw) {
   const digits = raw.replace(/\D/g, '').slice(0, 8);
@@ -42,7 +42,7 @@ export default function Input({ label, placeholder, value, onChange, optional, t
       {select ? (
         <div style={{ position: 'relative' }}>
           <div onClick={() => setOpen(o => !o)} style={{ ...fieldStyle, cursor: 'pointer' }}>
-            <img src={IMGS.globe} alt="" style={{ width: 20, height: 20, flexShrink: 0 }} />
+            <img src={globeIcon} alt="" style={{ width: 20, height: 20, flexShrink: 0 }} />
             <span style={{ flex: 1, fontSize: 14, color: value ? C.text : C.sub, lineHeight: '18px' }}>
               {value || placeholder}
             </span>

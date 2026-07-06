@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { IMGS } from '../assets/images';
 import Btn from '../components/Btn';
 import BackBtn from '../components/BackBtn';
+import checkIcon from '../assets/icons/check.svg';
+import eligibilityBg from '../assets/images/street-portrait.jpeg';
 
 const NavTitle = () => (
   <p style={{
@@ -27,7 +28,7 @@ export default function S0b({ onNext, onBack }) {
       {/* Full-bleed background photo */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: 529 }}>
         <img
-          src={IMGS.bgEligibility} alt="" draggable={false}
+          src={eligibilityBg} alt="" draggable={false}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
         {/* Vignette: dark top, clear mid, dark bottom */}
@@ -60,7 +61,7 @@ export default function S0b({ onNext, onBack }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {CRITERIA.map((label, i) => (
             <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'center', animation: `contentFadeUp 400ms cubic-bezier(0.22,1,0.36,1) ${120 + i * 70}ms both` }}>
-              <img src={IMGS.check} alt="" style={{ width: 24, height: 24, flexShrink: 0 }} />
+              <img src={checkIcon} alt="" style={{ width: 24, height: 24, flexShrink: 0 }} />
               <p style={{ fontSize: 16, color: '#fff', margin: 0, lineHeight: '22px' }}>{label}</p>
             </div>
           ))}
