@@ -29,6 +29,14 @@ const FLOWS = {
   onboarding:  ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11'],
 };
 
+// Screen pairs that crossfade instead of sliding
+const FADE_PAIRS = [
+  ['s0b', 's1'],
+  ['o10', 'o11'],
+];
+const isFadePair = (from, to) =>
+  FADE_PAIRS.some(([a, b]) => (from === a && to === b) || (from === b && to === a));
+
 const NAV_ITEMS = [
   { id: 'application', label: 'Application' },
   { id: 'status',      label: 'Check application status' },
@@ -55,7 +63,7 @@ export default function App() {
     if (exiting !== null) return;
     const dir = next > idx ? 1 : -1;
     const from = flow[idx], to = flow[next];
-    const fade = (from === 's0b' && to === 's1') || (from === 's1' && to === 's0b');
+    const fade = isFadePair(from, to);
     setExiting({ idx, dir });
     setIdx(next);
     setTimeout(() => setExiting(null), fade ? 620 : 340);
@@ -90,10 +98,7 @@ export default function App() {
     o11: <O11 onDone={() => navigate(0)} />,
   };
 
-  const isFade = exiting && (() => {
-    const from = flow[exiting.idx], to = flow[idx];
-    return (from === 's0b' && to === 's1') || (from === 's1' && to === 's0b');
-  })();
+  const isFade = exiting && isFadePair(flow[exiting.idx], flow[idx]);
 
   const enterClass = exiting ? (isFade ? 'fade-in'    : exiting.dir > 0 ? 'enter-right' : 'enter-left') : '';
   const exitClass  = exiting ? (isFade ? 'fade-out'   : exiting.dir > 0 ? 'exit-left'   : 'exit-right') : '';

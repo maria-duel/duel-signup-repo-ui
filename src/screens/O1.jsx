@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import narsLogo from '../assets/icons/nars-logo.svg';
 import grid1 from '../assets/images/grid1.jpeg';
 import grid2 from '../assets/images/grid2.jpeg';
@@ -26,6 +27,11 @@ const SSO_OPTIONS = [
 ];
 
 export default function O1({ onNext, onApply }) {
+  const [emailMode, setEmailMode] = useState(false);
+  const [email, setEmail] = useState('');
+  const [focused, setFocused] = useState(false);
+  const emailOk = email.includes('@') && email.includes('.');
+
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', background: '#000', overflow: 'hidden' }}>
 
@@ -114,16 +120,48 @@ export default function O1({ onNext, onApply }) {
           <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.2)' }} />
         </div>
 
+        {/* Email field — revealed by first tap on "Continue with email" */}
+        {emailMode && (
+          <div style={{
+            display: 'flex', alignItems: 'center', height: 48, padding: '0 17px',
+            borderRadius: 4,
+            background: 'rgba(255,255,255,0.1)',
+            border: `1px solid ${focused ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.4)'}`,
+            transition: 'border-color 150ms',
+            animation: 'contentFadeUp 320ms cubic-bezier(0.22,1,0.36,1) both',
+          }}>
+            <input
+              type="email"
+              autoFocus
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+              placeholder="Email address"
+              style={{
+                flex: 1, border: 'none', outline: 'none', background: 'transparent',
+                fontSize: 14, color: '#fff', lineHeight: '18px', fontFamily: 'inherit',
+              }}
+            />
+          </div>
+        )}
+
         {/* Continue with email */}
         <button
           className="pressable"
-          onClick={onNext}
+          onClick={() => {
+            if (!emailMode) { setEmailMode(true); return; }
+            if (emailOk) onNext();
+          }}
           style={{
             width: '100%', height: 48, borderRadius: 1000,
             border: '1px solid #fff', background: 'transparent',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontFamily: 'inherit', fontSize: 14, fontWeight: 700, color: '#fff',
             position: 'relative',
+            opacity: emailMode && !emailOk ? 0.5 : 1,
+            cursor: emailMode && !emailOk ? 'default' : 'pointer',
+            transition: 'opacity 220ms ease',
           }}
         >
           <img src={icoMail} alt="" style={{ position: 'absolute', left: 20, width: 20, height: 20, filter: 'invert(1)' }} />
