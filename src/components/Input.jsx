@@ -18,7 +18,7 @@ const ChevronDown = ({ open }) => (
   </svg>
 );
 
-export default function Input({ label, placeholder, value, onChange, optional, type = 'text', select, dob, valid }) {
+export default function Input({ label, placeholder, value, onChange, optional, type = 'text', select, dob, valid, options = COUNTRIES }) {
   const [focused, setFocused] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -54,7 +54,7 @@ export default function Input({ label, placeholder, value, onChange, optional, t
               background: '#1a1a1a', borderRadius: 4, border: `1px solid ${C.inputBorder}`,
               boxShadow: '0 8px 32px rgba(0,0,0,0.6)', overflow: 'hidden',
             }}>
-              {COUNTRIES.map(c => (
+              {options.map(c => (
                 <div
                   key={c}
                   className="dropdown-item"

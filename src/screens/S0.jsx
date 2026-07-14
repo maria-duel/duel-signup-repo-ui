@@ -155,7 +155,7 @@ export default function S0({ onNext }) {
             </div>
           </div>
 
-          {/* Apply now CTA + Sign in */}
+          {/* Apply now CTA + Check your application */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: '100%', alignItems: 'center' }}>
             <button
               className="pressable"
@@ -172,11 +172,14 @@ export default function S0({ onNext }) {
             <button
               style={{
                 background: 'transparent', border: 'none',
-                fontSize: 14, fontWeight: 700, color: '#fff',
+                fontSize: 14, fontWeight: 400, color: '#fff',
                 fontFamily: 'inherit', cursor: 'pointer', padding: '4px 0',
               }}
             >
-              Sign in
+              Already applied?{' '}
+              <span style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>
+                Check your application
+              </span>
             </button>
           </div>
         </div>
