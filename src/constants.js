@@ -12,6 +12,12 @@ export const C = {
 };
 
 export const COUNTRIES = [
-  'United Kingdom','United States','Australia','Canada','Germany',
-  'France','Netherlands','Spain','Ireland','New Zealand',
+  'United Kingdom','United States','United Arab Emirates','Australia','Canada',
+  'Germany','France','Netherlands','Spain','Ireland','New Zealand',
 ];
+
+// The market this programme is open to, and sibling programmes in other markets
+export const PROGRAMME_MARKET = 'United Kingdom';
+export const SIBLING_PROGRAMMES = {
+  'United Arab Emirates': { region: 'the UAE', name: 'NARS Friends With Benefits UAE' },
+};

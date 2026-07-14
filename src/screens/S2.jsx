@@ -1,6 +1,8 @@
-import { C } from '../constants';
+import { useState, useRef, useEffect } from 'react';
+import { PROGRAMME_MARKET, SIBLING_PROGRAMMES } from '../constants';
 import Input from '../components/Input';
 import BackBtn from '../components/BackBtn';
+import CountrySheet from '../components/CountrySheet';
 
 const NavTitle = () => (
   <p style={{
@@ -21,8 +23,30 @@ const TermsFooter = () => (
   </div>
 );
 
-export default function S2({ d, set, onNext, onBack }) {
+export default function S2({ d, set, onNext, onBack, onRestart }) {
   const ok = d.firstName.trim() && d.lastName.trim() && d.dob.trim() && d.country.trim();
+
+  // Country-conflict sheet: null | { country }
+  const [conflict, setConflict] = useState(null);
+  const [notified, setNotified] = useState(false);
+  const dismissTimer = useRef(null);
+  useEffect(() => () => clearTimeout(dismissTimer.current), []);
+
+  const selectCountry = (v) => {
+    set(p => ({ ...p, country: v }));
+    if (v && v !== PROGRAMME_MARKET) {
+      setNotified(false);
+      setConflict({ country: v });
+    }
+  };
+
+  const dismissConflict = () => {
+    clearTimeout(dismissTimer.current);
+    set(p => ({ ...p, country: '' }));
+    setConflict(null);
+  };
+
+  const sibling = conflict && SIBLING_PROGRAMMES[conflict.country];
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', background: '#000', overflow: 'hidden' }}>
@@ -62,7 +86,7 @@ export default function S2({ d, set, onNext, onBack }) {
           </div>
 
           <Input label="Date of birth" placeholder="dd/mm/yyyy" value={d.dob} onChange={v => set(p => ({ ...p, dob: v }))} dob />
-          <Input label="Country" placeholder="Select your country" value={d.country} onChange={v => set(p => ({ ...p, country: v }))} select />
+          <Input label="Country" placeholder="Select your country" value={d.country} onChange={selectCountry} select />
         </div>
 
         {/* CTA */}
@@ -83,6 +107,32 @@ export default function S2({ d, set, onNext, onBack }) {
 
         <TermsFooter />
       </div>
+
+      {/* Country-conflict sheet */}
+      {conflict && (sibling ? (
+        <CountrySheet
+          title={`There's a NARS programme in ${sibling.region}`}
+          body={`Friends With Benefits is currently open to UK-based creators — but NARS runs a programme in ${sibling.region}.`}
+          cta={`Apply to the ${sibling.region.replace('the ', '')} programme`}
+          onCta={() => { set(p => ({ ...p, country: '' })); onRestart(); }}
+          onDismiss={dismissConflict}
+          dismissLabel="I'm based in the UK"
+        />
+      ) : (
+        <CountrySheet
+          title="This programme is UK-only"
+          body="NARS Friends With Benefits is currently open to UK-based creators only."
+          cta={`Notify me when it opens in ${conflict.country}`}
+          ctaDone="We'll let you know ✓"
+          done={notified}
+          onCta={() => {
+            setNotified(true);
+            dismissTimer.current = setTimeout(dismissConflict, 1600);
+          }}
+          onDismiss={dismissConflict}
+          dismissLabel="I'm based in the UK"
+        />
+      ))}
     </div>
   );
 }

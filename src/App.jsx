@@ -76,7 +76,7 @@ export default function App() {
     s0:  <S0 onNext={next} />,
     s0b: <S0b onNext={next} onBack={back} />,
     s1:  <S1 d={form} set={setForm} onNext={next} onBack={back} />,
-    s2:  <S2 d={form} set={setForm} onNext={next} onBack={back} />,
+    s2:  <S2 d={form} set={setForm} onNext={next} onBack={back} onRestart={() => navigate(0)} />,
     s3:  <S3 d={form} set={setForm} onNext={next} onBack={back} />,
     s4:  <S4 email={form.email} onNext={next} />,
     s4b: <S4b onNext={next} />,
