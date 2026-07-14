@@ -5,15 +5,6 @@ import tiktokIcon from '../assets/icons/tiktok-icon.svg';
 import ytIcon from '../assets/icons/yt-icon.svg';
 import fbIcon from '../assets/icons/fb-icon.svg';
 
-const NavTitle = () => (
-  <p style={{
-    position: 'absolute', top: 40, left: 0, right: 0,
-    fontSize: 16, fontWeight: 700, color: '#fff', textAlign: 'center', margin: 0,
-  }}>
-    NARS Friends With Benefits
-  </p>
-);
-
 const TermsFooter = () => (
   <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>
     {['Terms', 'Privacy Policy'].map(t => (
@@ -99,7 +90,6 @@ export default function S3({ onNext, onBack }) {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', background: '#000', overflow: 'hidden' }}>
       <BackBtn onClick={onBack} />
-      <NavTitle />
 
       {/* Bottom-anchored content */}
       <div style={{

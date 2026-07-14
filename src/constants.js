@@ -21,3 +21,15 @@ export const PROGRAMME_MARKET = 'United Kingdom';
 export const SIBLING_PROGRAMMES = {
   'United Arab Emirates': { region: 'the UAE', name: 'NARS Friends With Benefits UAE' },
 };
+
+// City options for the signup details screen; cities outside the
+// programme market map to their country for the conflict check
+export const CITIES = [
+  'London', 'Manchester', 'Birmingham', 'Leeds', 'Glasgow',
+  'Edinburgh', 'Bristol', 'Dubai', 'Berlin', 'New York',
+];
+export const CITY_TO_COUNTRY = {
+  Dubai: 'United Arab Emirates',
+  Berlin: 'Germany',
+  'New York': 'United States',
+};

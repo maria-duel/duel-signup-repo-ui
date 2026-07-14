@@ -21,18 +21,27 @@ import O7 from './screens/O7';
 import O8 from './screens/O8';
 import O9 from './screens/O9';
 import O10 from './screens/O10';
+import O10b from './screens/O10b';
 import O11 from './screens/O11';
+import JourneyProgress from './components/JourneyProgress';
 
 const FLOWS = {
   application: ['s0', 's0b', 's1', 's2', 's3', 's4', 's4b', 's5'],
   status:      ['cs1', 'cs2', 'cs3', 'cs4'],
-  onboarding:  ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11'],
+  onboarding:  ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o10b', 'o11'],
+};
+
+// Step screens per flow that show the journey progress bar (landing
+// screens, interstitials, and mocks are excluded)
+const STEP_MAPS = {
+  application: ['s2', 's3'],
+  onboarding:  ['o5', 'o6', 'o7', 'o8', 'o9', 'o10'],
 };
 
 // Screen pairs that crossfade instead of sliding
 const FADE_PAIRS = [
   ['s0b', 's1'],
-  ['o10', 'o11'],
+  ['o10b', 'o11'],
 ];
 const isFadePair = (from, to) =>
   FADE_PAIRS.some(([a, b]) => (from === a && to === b) || (from === b && to === a));
@@ -95,6 +104,7 @@ export default function App() {
     o8:  <O8 onNext={next} onBack={back} />,
     o9:  <O9 onNext={next} onBack={back} />,
     o10: <O10 onNext={next} onBack={back} />,
+    o10b: <O10b onNext={next} />,
     o11: <O11 onDone={() => navigate(0)} />,
   };
 
@@ -135,6 +145,11 @@ export default function App() {
             <div key={`${section}-c-${idx}`} className={`screen ${enterClass}`} style={{ zIndex: exiting ? 2 : 0 }}>
               {screens[flow[idx]]}
             </div>
+            {(() => {
+              const steps = STEP_MAPS[section];
+              const pos = steps ? steps.indexOf(flow[idx]) : -1;
+              return pos >= 0 && <JourneyProgress pct={(pos + 1) / (steps.length + 1)} />;
+            })()}
           </>
         ) : (
           <div className="screen" style={{

@@ -1,17 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { PROGRAMME_MARKET, SIBLING_PROGRAMMES } from '../constants';
+import { SIBLING_PROGRAMMES, CITIES, CITY_TO_COUNTRY } from '../constants';
 import Input from '../components/Input';
 import BackBtn from '../components/BackBtn';
 import CountrySheet from '../components/CountrySheet';
-
-const NavTitle = () => (
-  <p style={{
-    position: 'absolute', top: 40, left: 0, right: 0,
-    fontSize: 16, fontWeight: 700, color: '#fff', textAlign: 'center', margin: 0,
-  }}>
-    NARS Friends With Benefits
-  </p>
-);
 
 const TermsFooter = () => (
   <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>
@@ -32,11 +23,12 @@ export default function S2({ d, set, onNext, onBack, onRestart }) {
   const dismissTimer = useRef(null);
   useEffect(() => () => clearTimeout(dismissTimer.current), []);
 
-  const selectCountry = (v) => {
+  const selectCity = (v) => {
     set(p => ({ ...p, country: v }));
-    if (v && v !== PROGRAMME_MARKET) {
+    const country = CITY_TO_COUNTRY[v];
+    if (country) {
       setNotified(false);
-      setConflict({ country: v });
+      setConflict({ country });
     }
   };
 
@@ -51,7 +43,6 @@ export default function S2({ d, set, onNext, onBack, onRestart }) {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', background: '#000', overflow: 'hidden' }}>
       <BackBtn onClick={onBack} />
-      <NavTitle />
 
       {/* Bottom-anchored content */}
       <div style={{
@@ -86,7 +77,7 @@ export default function S2({ d, set, onNext, onBack, onRestart }) {
           </div>
 
           <Input label="Date of birth" placeholder="dd/mm/yyyy" value={d.dob} onChange={v => set(p => ({ ...p, dob: v }))} dob />
-          <Input label="Country" placeholder="Select your country" value={d.country} onChange={selectCountry} select />
+          <Input label="City" placeholder="Select your city" value={d.country} onChange={selectCity} select options={CITIES} />
         </div>
 
         {/* CTA */}
